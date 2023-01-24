@@ -230,58 +230,57 @@ def device6():
 @blueprint.route('/devices')
 def device7():    
     """
-        Permite a edição de um usuário [PUT]
+        Permite listar todos os dispositivos cadastrados [GET]
     """
-    if request.method == 'PUT':
-        headers = request.headers
-        bearer = headers.get('Authorization')    # Bearer YourTokenHere
-        token = bearer.split()[1]
-        response = [
+    headers = request.headers
+    bearer = headers.get('Authorization')    # Bearer YourTokenHere
+    token = bearer.split()[1]
+    response = [
+        {
+            "id": "string",
+            "name": "string",
+            "fps": 0,
+            "fps_percent": 0,
+            "detection_threshold": 0,
+            "resolution": "string",
+            "resolution_percent": 0,
+            "event_length": 0,
+            "trigger_timer": 0,
+            "capture_path": "string",
+            "category": {
+            "id": 0,
+            "name": "string"
+            },
+            "frame_encoder": {
+            "id": 0,
+            "name": "string"
+            },
+            "trigger": {
+            "id": 0,
+            "name": "string",
+            "type": "string"
+            },
+            "md_threshold": {
+            "id": 0,
+            "name": "string",
+            "chunk_lines": 0,
+            "chunk_percent": 0,
+            "motion_detection_threshold": 0
+            },
+            "domain": {
+            "id": 0,
+            "name": "string",
+            "created_at": "string",
+            "updated_at": "string",
+            "active": True
+            },
+            "services": [
             {
-                "id": "string",
-                "name": "string",
-                "fps": 0,
-                "fps_percent": 0,
-                "detection_threshold": 0,
-                "resolution": "string",
-                "resolution_percent": 0,
-                "event_length": 0,
-                "trigger_timer": 0,
-                "capture_path": "string",
-                "category": {
                 "id": 0,
                 "name": "string"
-                },
-                "frame_encoder": {
-                "id": 0,
-                "name": "string"
-                },
-                "trigger": {
-                "id": 0,
-                "name": "string",
-                "type": "string"
-                },
-                "md_threshold": {
-                "id": 0,
-                "name": "string",
-                "chunk_lines": 0,
-                "chunk_percent": 0,
-                "motion_detection_threshold": 0
-                },
-                "domain": {
-                "id": 0,
-                "name": "string",
-                "created_at": "string",
-                "updated_at": "string",
-                "active": True
-                },
-                "services": [
-                {
-                    "id": 0,
-                    "name": "string"
-                }
-                ]
             }
             ]
-        return jsonify(response), 200
+        }
+        ]
+    return jsonify(response), 200
 

@@ -11,10 +11,32 @@ sudo apt update
 sudo apt install docker docker-compose
 ```
 
-2 - Realize o deploy
+2 - Crie uma rede externa:
+```sh
+docker network create external-gigaview-network
+```
+
+3 - Adicione as seguintes linhas no docker-compose.yml do Front-End
+
+```sh
+networks: 
+  default: 
+    external: 
+      name: external-gigaview-network
+```
+
+4 - Modifique o arquivo .env do Front-End
+
+```sh
+APP_NAME=GigaView
+API_HOST=frontend-tester
+API_PORT=5000
+```
+
+5 - Realize o deploy
 
 ```sh
 sudo docker compose up
 ```
 
-3 - Verifique se aplicação está rodando: [clique aqui](http://localhost:5005)
+6 - Verifique se aplicação está rodando: [clique aqui](http://localhost:5005)
