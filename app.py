@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from importlib import import_module
 
 def register_blueprints(app):
-    for module_name in ['Users', 'Devices']:
+    for module_name in ['Users', 'Devices', 'Domains', 'Groups', 'Panels']:
         module = import_module('routes.{}'.format(module_name))
         app.register_blueprint(module.blueprint)
 
