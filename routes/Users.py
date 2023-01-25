@@ -69,7 +69,7 @@ def user2():
         response = {
             "uuid": str(uuid.uuid4()),
             "email": "a@a.com",
-            "token": "a77d338964b991bc8fbc0a090fbe0793796486d5"
+            "token": "Bearer a77d338964b991bc8fbc0a090fbe0793796486d5"
             }
         return jsonify(response), 200
 
